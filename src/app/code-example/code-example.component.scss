@@ -1,0 +1,36 @@
+.code-example {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.code-tabs {
+    display: flex;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.code-tabs button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.code-tabs button.active {
+    background: #fff;
+    border-bottom: 2px solid #007acc;
+}
+
+.code-content {
+    padding: 1rem;
+    background: #f8f8f8;
+    overflow: auto;
+}
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+}

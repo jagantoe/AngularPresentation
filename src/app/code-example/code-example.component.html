@@ -1,0 +1,15 @@
+<div class="code-example">
+    <div class="code-tabs">
+        <button (click)="activeTab.set('html')" [class.active]="activeTab() === 'html'">HTML</button>
+        <button (click)="activeTab.set('ts')" [class.active]="activeTab() === 'ts'">TypeScript</button>
+    </div>
+    @let codeFiles = codeFiles$ | async;
+    <div class="code-content">
+        @if (activeTab() === 'html' && codeFiles) {
+        <pre>{{ codeFiles.htmlContent }}</pre>
+        }
+        @if (activeTab() === 'ts' && codeFiles) {
+        <pre>{{ codeFiles.tsContent }}</pre>
+        }
+    </div>
+</div>
