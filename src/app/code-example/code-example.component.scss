@@ -3,6 +3,7 @@
     border-radius: 4px;
     overflow: hidden;
     margin: 1rem 0;
+    text-align: start;
 }
 
 .code-tabs {
@@ -30,7 +31,10 @@
 }
 
 pre {
-    margin: 0;
+    padding: 5px;
     white-space: pre-wrap;
-    font-family: 'Courier New', Courier, monospace;
+}
+
+.hidden {
+    display: none;
 }

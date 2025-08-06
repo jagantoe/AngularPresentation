@@ -1,15 +1,22 @@
-<div class="code-example">
-    <div class="code-tabs">
-        <button (click)="activeTab.set('html')" [class.active]="activeTab() === 'html'">HTML</button>
-        <button (click)="activeTab.set('ts')" [class.active]="activeTab() === 'ts'">TypeScript</button>
+@if(codeFiles$ | async; as codeFiles) {
+    <div class="code-example">
+        <div class="code-tabs">
+            @if(contentRef.innerHTML.trim()) {
+                <button (click)="activeTab.set('preview')" [class.active]="activeTab() === 'preview'">Preview</button>
+            }
+            <button (click)="activeTab.set('html')" [class.active]="activeTab() === 'html'">HTML</button>
+            <button (click)="activeTab.set('ts')" [class.active]="activeTab() === 'ts'">TypeScript</button>
+        </div>
+        <div class="code-content">
+            @if(codeFiles?.htmlContent) {
+                <pre [class.hidden]="activeTab() !== 'html'" app-code-block [code]="codeFiles.htmlContent!"></pre>
+            }
+            @if(codeFiles?.tsContent) {
+                <pre [class.hidden]="activeTab() !== 'ts'" app-code-block [code]="codeFiles.tsContent"></pre>
+            }
+            <span [class.hidden]="activeTab() !== 'preview'" #contentRef>
+                <ng-content />
+            </span>
+        </div>
     </div>
-    @let codeFiles = codeFiles$ | async;
-    <div class="code-content">
-        @if (activeTab() === 'html' && codeFiles) {
-        <pre>{{ codeFiles.htmlContent }}</pre>
-        }
-        @if (activeTab() === 'ts' && codeFiles) {
-        <pre>{{ codeFiles.tsContent }}</pre>
-        }
-    </div>
-</div>
+}

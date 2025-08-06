@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, forkJoin, map, of } from 'rxjs';
 
 export interface CodeFiles {
-  htmlContent: string;
+  htmlContent?: string;
   tsContent: string;
   path: string;
 }
@@ -14,12 +14,19 @@ export interface CodeFiles {
 export class CodeLoaderService {
   private http = inject(HttpClient);
 
+  private readonly default: CodeFiles = {
+    htmlContent: '<!-- Default HTML content -->',
+    tsContent: '// Default TypeScript content',
+    path: ''
+  }
+
   /**
    * Loads the HTML and TS files for a component as raw strings
    * @param path Relative path to the component (e.g., 'examples/control-flow/conditional')
    * @returns Observable with HTML and TS content as strings
    */
   loadComponentCode(path: string): Observable<CodeFiles> {
+    if (!path) return of(this.default);
     // Normalize path by replacing backslashes with forward slashes
     const normalizedPath = path.replace(/\\/g, '/');
 
