@@ -66,7 +66,7 @@ export class CodeLoaderService {
    * @returns Observable with file content as string
    */
   private loadFileAsText(path: string): Observable<string> {
-    return this.http.get(`/${path}`, { responseType: 'text' })
+    return this.http.get(`./${path}`, { responseType: 'text' })
       .pipe(
         catchError(error => {
           console.error(`Error loading file ${path}:`, error);
