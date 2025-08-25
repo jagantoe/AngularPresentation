@@ -1,1 +1,50 @@
-<p>observables works!</p>
+<section>
+    <h2>Observables</h2>
+    <p><a href="https://rxjs.dev/guide/observable">Observables</a> can be seen as an asynchronous stream of data. You
+        can subscribe to an observables to receive any
+        data it might emit over time. The observable can also throw errors and 'complete' to indicate that no more data
+        will be emitted.</p>
+</section>
+
+<section>
+    <h3>Subscribing</h3>
+    <p>
+        When subscribing to an observable we can pass an <a href="https://rxjs.dev/guide/observer">Observer</a> object.
+        This observer contains callbacks for each possible emission from an Observables.
+    </p>
+    <ul>
+        <li>next: called when the observable emits a new value</li>
+        <li>error: called when the observable encounters an error</li>
+        <li>complete: called when the observable completes</li>
+    </ul>
+</section>
+
+<section>
+    <h3>Basic Observable</h3>
+    <app-code-example path="rxjs/basic-observable/basic-observable.component.ts"></app-code-example>
+</section>
+
+<section>
+    <h3>Subject</h3>
+    <app-code-example path="rxjs/subject/subject.component.ts" />
+</section>
+
+<section>
+    <h3>ReplaySubject</h3>
+    <app-code-example path="rxjs/replay-subject/replay-subject.component.ts" />
+</section>
+
+<section>
+    <h3>BehaviorSubject</h3>
+    <app-code-example path="rxjs/behaviour-subject/behaviour-subject.component.ts" />
+</section>
+
+<section>
+    <h3>Operators</h3>
+    <app-code-example path="rxjs/operators/operators.component.ts" />
+</section>
+
+<section>
+    <h3>Higher Order Observables</h3>
+    <app-code-example path="rxjs/higher-order/higher-order.component.ts" />
+</section>

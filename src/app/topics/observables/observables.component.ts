@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CodeExampleComponent } from '../../code-example/code-example.component';
 
 @Component({
   selector: 'section[app-observables]',
-  imports: [],
+  imports: [CodeExampleComponent],
   templateUrl: './observables.component.html',
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ObservablesComponent {

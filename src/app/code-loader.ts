@@ -34,13 +34,15 @@ export class CodeLoaderService {
     const segments = normalizedPath.split('/');
     const componentName = segments[segments.length - 1];
 
+    const specificFile = path.endsWith(".ts");
+
     // Construct paths to the files
-    const htmlPath = `${normalizedPath}/${componentName}.component.html`;
-    const tsPath = `${normalizedPath}/${componentName}.component.ts`;
+    const htmlPath = specificFile ? null : `${normalizedPath}/${componentName}.component.html`;
+    const tsPath = specificFile ? `${normalizedPath}` : `${normalizedPath}/${componentName}.component.ts`;
 
     // Load both files as text
     return forkJoin({
-      htmlContent: this.loadFileAsText(htmlPath),
+      htmlContent: htmlPath ? this.loadFileAsText(htmlPath) : of(undefined),
       tsContent: this.loadFileAsText(tsPath)
     }).pipe(
       map(result => ({

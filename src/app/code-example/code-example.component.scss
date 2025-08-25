@@ -2,7 +2,6 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
-    margin: 1rem 0;
     text-align: start;
 }
 
@@ -17,6 +16,7 @@
     border: none;
     background: none;
     cursor: pointer;
+    border-bottom: 2px solid white;
 }
 
 .code-tabs button.active {
@@ -26,15 +26,53 @@
 
 .code-content {
     padding: 1rem;
-    background: #f8f8f8;
     overflow: auto;
+    min-height: 300px;
+    max-height: 500px;
 }
 
 pre {
     padding: 5px;
     white-space: pre-wrap;
+    font-size: medium;
+    border-radius: 3px;
 }
 
 .hidden {
     display: none;
+}
+
+// Side by side styles
+.side-by-side {
+    .side-by-side-container {
+        display: flex;
+        flex-direction: row;
+        min-height: 400px;
+
+        @media (max-width: 992px) {
+            flex-direction: column;
+        }
+    }
+
+    .side-section {
+        flex: 1;
+        overflow: auto;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 992px) {
+            border-right: none;
+            border-bottom: 1px solid #ddd;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .preview-content {
+        padding: 1rem 0;
+    }
 }

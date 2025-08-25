@@ -1,0 +1,7 @@
+@if(valueSignal.isLoading()){
+    <p>Loading...</p>
+} @else if (valueSignal.error()){
+    <p>Error: {{ valueSignal.error() }}</p>
+} @else if(valueSignal.hasValue()) {
+    <p>{{ valueSignal.value() }}</p>
+}

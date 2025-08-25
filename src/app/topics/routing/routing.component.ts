@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CodeExampleComponent } from "../../code-example/code-example.component";
 
 @Component({
   selector: 'section[app-routing]',
-  imports: [],
+  imports: [CodeExampleComponent],
   templateUrl: './routing.component.html',
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoutingComponent {

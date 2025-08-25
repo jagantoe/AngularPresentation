@@ -1,0 +1,17 @@
+<p>ng-container is a grouping element that doesn't render in the DOM.</p>
+
+<button (click)="showExtraInfo = !showExtraInfo" style="display: block">
+    Hide/Show Extra Info
+</button>
+
+<ng-container *ngIf="showExtraInfo">
+    <p>This content is wrapped in ng-container with *ngIf.</p>
+    <p>It will be included or excluded from the DOM without adding extra elements.</p>
+</ng-container>
+
+<ul>
+    <ng-container *ngFor="let item of items; let i = index">
+        <li *ngIf="i % 2 === 0" class="item special">{{ item }} (even index)</li>
+        <li *ngIf="i % 2 !== 0" class="item normal">{{ item }} (odd index)</li>
+    </ng-container>
+</ul>

@@ -1,0 +1,6 @@
+<p [style.color]="toggle ? 'red' : 'black'">This text is colored</p>
+
+<button (click)="switch()">Click me</button>
+<button (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">{{ hoverText }}</button>
+
+<input type="text" [(ngModel)]="inputText" placeholder="Type something...">

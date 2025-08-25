@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-http-resource-signal',
   imports: [],
   templateUrl: './http-resource-signal.component.html',
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HttpResourceSignalComponent {

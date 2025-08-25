@@ -1,12 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Routes } from "@angular/router";
+import { ProductDetailComponent, ProductListComponent } from "../routing-components";
 
-@Component({
-  selector: 'app-parameters-routing',
-  imports: [],
-  templateUrl: './parameters-routing.component.html',
-  styles: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class ParametersRoutingComponent {
-
-}
+var routes: Routes = [
+  {
+    path: 'products',
+    component: ProductListComponent
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailComponent
+  }
+];

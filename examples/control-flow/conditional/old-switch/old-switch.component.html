@@ -1,0 +1,14 @@
+<p *ngSwitch="userType">
+    <ng-container *ngSwitchCase="0">
+        User is a guest
+    </ng-container>
+    <ng-container *ngSwitchCase="1">
+        User is a member
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+        User is an admin
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        Unknown user type
+    </ng-container>
+</p>

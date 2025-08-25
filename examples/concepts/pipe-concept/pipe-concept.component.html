@@ -1,0 +1,14 @@
+<div>
+    <p>Pipes transform data before displaying it in the view.</p>
+    <ul>
+        <li>Currency: {{ price | currency:'USD' }}</li>
+        <li>Raw date: {{ currentDate }}</li>
+        <li>Formatted date: {{ currentDate | date:'medium' }}</li>
+        <li>Original message: {{ message }}</li>
+        <li>Uppercase: {{ message | uppercase }}</li>
+        <li>Lowercase: {{ message | lowercase }}</li>
+        <li>Reversed: {{ message | reverse }}</li>
+        <li>Raw object: {{ person }}</li>
+        <li>Json: {{ person | json }}</li>
+    </ul>
+</div>

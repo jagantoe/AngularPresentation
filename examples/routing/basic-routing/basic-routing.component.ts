@@ -1,12 +1,31 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Routes } from '@angular/router';
+import { HomeComponent, NotFoundComponent, ProductListComponent, UserComponent, UserProfileComponent, UserSecurityComponent } from '../routing-components';
 
-@Component({
-  selector: 'app-basic-routing',
-  imports: [],
-  templateUrl: './basic-routing.component.html',
-  styles: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class BasicRoutingComponent {
-
-}
+var routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'products',
+    component: ProductListComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+    children: [
+      {
+        path: 'security',
+        component: UserSecurityComponent
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent
+      }
+    ]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
+];

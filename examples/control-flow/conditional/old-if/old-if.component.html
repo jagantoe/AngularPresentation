@@ -1,0 +1,11 @@
+<ng-container *ngIf="item === undefined; else itemTemplate">
+    <p>Loading...</p>
+</ng-container>
+<ng-template #itemTemplate>
+    <ng-container *ngIf="item; else noItemTemplate">
+        <p>{{ item }}</p>
+    </ng-container>
+    <ng-template #noItemTemplate>
+        <p>No item available</p>
+    </ng-template>
+</ng-template>

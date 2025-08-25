@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'reveal.js/dist/reveal.css';
+// Light
+// @import 'reveal.js/dist/theme/simple.css';
+// Dark
+@import 'reveal.js/dist/theme/black.css';
 // Full list of highlight themes: https://highlightjs.org/demo
+// Light
+// @import 'highlight.js/styles/github.css';
+// Dark
 @import 'highlight.js/styles/atom-one-dark-reasonable.css';
 
 // Some global styles for the presentation

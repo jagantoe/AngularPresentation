@@ -1,0 +1,16 @@
+<p>Directives add behavior to elements in the DOM.</p>
+<p>Hover over the boxes below to see the highlight directive in action.</p>
+
+<label>Select highlight color:
+    <select [(ngModel)]="selectedColor">
+        <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+    </select>
+</label>
+
+<p appDirectiveConcept [highlightColor]="selectedColor">
+    This paragraph uses the highlight directive. Hover to see the effect!
+</p>
+
+<button appDirectiveConcept [highlightColor]="selectedColor">
+    This button also uses the directive
+</button>

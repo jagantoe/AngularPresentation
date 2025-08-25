@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CodeExampleComponent } from "../../code-example/code-example.component";
 
 @Component({
   selector: 'section[app-data-loading]',
-  imports: [],
+  imports: [CodeExampleComponent],
   templateUrl: './data-loading.component.html',
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataLoadingComponent {

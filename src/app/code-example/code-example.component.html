@@ -1,22 +1,42 @@
 @if(codeFiles$ | async; as codeFiles) {
-    <div class="code-example">
-        <div class="code-tabs">
-            @if(contentRef.innerHTML.trim()) {
-                <button (click)="activeTab.set('preview')" [class.active]="activeTab() === 'preview'">Preview</button>
-            }
-            <button (click)="activeTab.set('html')" [class.active]="activeTab() === 'html'">HTML</button>
-            <button (click)="activeTab.set('ts')" [class.active]="activeTab() === 'ts'">TypeScript</button>
-        </div>
-        <div class="code-content">
-            @if(codeFiles?.htmlContent) {
-                <pre [class.hidden]="activeTab() !== 'html'" app-code-block [code]="codeFiles.htmlContent!"></pre>
-            }
-            @if(codeFiles?.tsContent) {
-                <pre [class.hidden]="activeTab() !== 'ts'" app-code-block [code]="codeFiles.tsContent"></pre>
-            }
-            <span [class.hidden]="activeTab() !== 'preview'" #contentRef>
-                <ng-content />
-            </span>
-        </div>
+    <div class="code-example" [class.side-by-side]="sideBySide()">
+        @if (!sideBySide()) {
+            <div class="code-tabs">
+                @if(contentRef.innerHTML.trim()) {
+                    <button (click)="activeTab.set('preview')"
+                        [class.active]="activeTab() === 'preview'">Preview</button>
+                }
+                @if(codeFiles?.htmlContent) {
+                    <button (click)="activeTab.set('html')" [class.active]="activeTab() === 'html'">HTML</button>
+                }
+                <button (click)="activeTab.set('ts')" [class.active]="activeTab() === 'ts'">TypeScript</button>
+            </div>
+            <div class="code-content">
+                @if(codeFiles?.htmlContent) {
+                    <pre [class.hidden]="activeTab() !== 'html'" class="language-HTML" app-code-block
+                        [code]="codeFiles.htmlContent!"></pre>
+                }
+                @if(codeFiles?.tsContent) {
+                    <pre [class.hidden]="activeTab() !== 'ts'" class="language-typescript" app-code-block
+                        [code]="codeFiles.tsContent"></pre>
+                }
+                <span [class.hidden]="activeTab() !== 'preview'" #contentRef>
+                    <ng-content />
+                </span>
+            </div>
+        } @else {
+            <div class="side-by-side-container">
+                @if(codeFiles?.htmlContent) {
+                    <div class="side-section">
+                        <pre class="language-HTML" app-code-block [code]="codeFiles.htmlContent!"></pre>
+                    </div>
+                }
+                @if(codeFiles?.tsContent) {
+                    <div class="side-section">
+                        <pre class="language-typescript" app-code-block [code]="codeFiles.tsContent"></pre>
+                    </div>
+                }
+            </div>
+        }
     </div>
 }

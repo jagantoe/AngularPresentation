@@ -1,0 +1,7 @@
+<ul>
+    @for (item of list; track $index) {
+        <li>{{ item }}</li>
+    } @empty {
+        <li>No items found</li>
+    }
+</ul>

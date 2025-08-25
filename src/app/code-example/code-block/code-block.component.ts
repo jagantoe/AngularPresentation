@@ -5,7 +5,6 @@ import { highlightCode } from '../../utils/highlight';
   selector: '[app-code-block]',
   imports: [],
   template: '<code data-noescape data-trim [textContent]="code()"></code>',
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CodeBlockComponent {

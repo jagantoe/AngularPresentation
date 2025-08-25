@@ -1,12 +1,17 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Routes } from '@angular/router';
+import { HomeComponent, ProductListComponent } from '../routing-components';
 
-@Component({
-  selector: 'app-lazy-load-routing',
-  imports: [],
-  templateUrl: './lazy-load-routing.component.html',
-  styles: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class LazyLoadRoutingComponent {
-
-}
+var routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'products',
+    component: ProductListComponent
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('../routing-components').then(m => m.userRoutes)
+  }
+];

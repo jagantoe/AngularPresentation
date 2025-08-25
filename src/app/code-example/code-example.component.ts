@@ -18,7 +18,8 @@ export class CodeExampleComponent {
 
     readonly path = input<string>('');
     readonly path$ = toObservable(this.path);
+    readonly sideBySide = input<boolean>(false);
 
-    readonly activeTab = signal<'html' | 'ts' | 'preview'>('html');
+    readonly activeTab = signal<'html' | 'ts' | 'preview'>('ts');
     readonly codeFiles$ = this.path$.pipe(switchMap(path => this.codeLoader.loadComponentCode(path)));
 }
